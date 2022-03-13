@@ -1,0 +1,53 @@
+# Common Application properties
+# https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html
+
+# -------------------------------------------------------------------------------------------------------------
+# SERVER PROPERTIES
+# -------------------------------------------------------------------------------------------------------------
+
+# EMBEDDED SERVER CONFIGURATION (ServerProperties)
+server:
+  # Server HTTP port
+  port: 9091
+  # When to include the "trace" attribute
+  error:
+    include-stacktrace: never
+
+# -------------------------------------------------------------------------------------------------------------
+# ACTUATOR PROPERTIES - https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html
+# -------------------------------------------------------------------------------------------------------------
+
+# ENDPOINTS WEB CONFIGURATION (WebEndpointProperties)
+
+# Whether to enable the info endpoint
+management:
+  endpoint:
+    info:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+# -------------------------------------------------------------------------------------------------------------
+# CORE PROPERTIES
+# -------------------------------------------------------------------------------------------------------------
+
+## info Endpoint Configuration
+info:
+  app:
+    name: @project.name@
+    description: @project.description@
+    version: @project.version@
+    encoding: @project.build.sourceEncoding@
+    java:
+      version: @java.version@
+
+  # build properties from maven
+  build:
+    groupId: @project.groupId@
+    artifact: @project.artifactId@
+    version: @project.version@
+    packaging: @project.packaging@
+    name: @project.name@
+    description: @project.description@
