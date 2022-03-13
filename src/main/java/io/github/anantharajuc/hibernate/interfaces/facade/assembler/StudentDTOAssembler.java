@@ -13,6 +13,7 @@ public class StudentDTOAssembler {
                 .lastName(studentDTO.getLastName())
                 .email(studentDTO.getEmail())
                 .images(studentDTO.getImages())
+                .education(studentDTO.getEducation())
                 .build();
     }
 
@@ -23,6 +24,7 @@ public class StudentDTOAssembler {
                 .lastName(student.getLastName())
                 .email(student.getEmail())
                 .images(student.getImages())
+                .education(student.getEducation())
                 .build();
     }
 }

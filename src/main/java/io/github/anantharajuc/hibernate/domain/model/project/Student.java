@@ -8,7 +8,9 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @FieldDefaults(level=AccessLevel.PRIVATE)
@@ -46,4 +48,10 @@ public class Student {
     @Column(name = "file_name")
     @CollectionTable(name = "student_images", joinColumns = @JoinColumn(name = "student_id"))
     Set<String> images = new HashSet<>();
+
+    @ElementCollection
+    @Column(name = "education")
+    @OrderColumn
+    @CollectionTable(name = "education")
+    List<String> education = new ArrayList<>();
 }

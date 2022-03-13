@@ -4,4 +4,5 @@ import io.github.anantharajuc.hibernate.domain.model.project.Student;
 
 public interface StudentService {
     Student getStudentById(Long StudentId);
+    Student createStudent(Student student);
 }

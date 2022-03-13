@@ -8,6 +8,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -24,13 +25,15 @@ public class StudentDTO implements Serializable {
     @NotNull(message = "Email cannot be blank.")
     private final String email;
     private final Set<String> images;
+    private final List<String> education;
 
     @Builder
-    public StudentDTO(Long id, String firstName, String lastName, String email, Set<String> images) {
+    public StudentDTO(Long id, String firstName, String lastName, String email, Set<String> images, List<String> education) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.images = images;
+        this.education = education;
     }
 }

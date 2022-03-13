@@ -22,4 +22,11 @@ public class StudentFacadeImpl implements StudentFacade {
         final Student student = studentService.getStudentById(studentId);
         return studentDTOAssembler.toDTO(student);
     }
+
+    @Override
+    public Long createStudent(StudentDTO studentDTO) {
+        Student student = studentDTOAssembler.fromDTO(studentDTO);
+        student = studentService.createStudent(student);
+        return student.getId();
+    }
 }

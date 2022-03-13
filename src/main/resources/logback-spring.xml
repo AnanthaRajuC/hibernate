@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} %magenta([%thread]) %highlight(%-5level) %logger{36}.%M - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="SUCCESS_LOGS" class="ch.qos.logback.core.FileAppender">
+        <file>logs/application-success.log</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M - %msg%n</Pattern>
+        </encoder>
+    </appender>
+    <appender name="ERROR_LOGS" class="ch.qos.logback.core.FileAppender">
+        <file>logs/application-error.log</file>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M - %msg%n</Pattern>
+        </encoder>
+    </appender>
+    <logger name="io.github.anantharajuc.hibernate" additivity="false" level="info">
+        <appender-ref ref="SUCCESS_LOGS" />
+        <appender-ref ref="STDOUT" />
+    </logger>
+    <logger name="error-logs" additivity="false" level="info">
+        <appender-ref ref="ERROR_LOGS" />
+        <appender-ref ref="STDOUT" />
+    </logger>
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>

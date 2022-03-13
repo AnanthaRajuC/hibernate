@@ -12,13 +12,21 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/v1/students")
 public class StudentController {
 
+    private static final java.util.logging.Logger logSuccess = java.util.logging.Logger.getLogger(StudentController.class.getName());
+
     @Autowired
     private StudentFacade studentFacade;
 
     @ResponseStatus(code = HttpStatus.OK)
     @GetMapping("/{studentId}")
     public StudentDTO getStudentById(@PathVariable("studentId") Long studentId) {
-        log.info("Student controller");
+        logSuccess.info("Student controller");
         return studentFacade.getStudentById(studentId);
+    }
+
+    @ResponseStatus(code = HttpStatus.CREATED)
+    @PostMapping("")
+    public Long createStudent(@RequestBody StudentDTO studentDTO) {
+        return studentFacade.createStudent(studentDTO);
     }
 }
