@@ -9,6 +9,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 @Data
@@ -26,14 +27,18 @@ public class StudentDTO implements Serializable {
     private final String email;
     private final Set<String> images;
     private final List<String> education;
+    private final Map<String, String> parents;
+    private final Set<String> subjects;
 
     @Builder
-    public StudentDTO(Long id, String firstName, String lastName, String email, Set<String> images, List<String> education) {
+    public StudentDTO(Long id, String firstName, String lastName, String email, Set<String> images, List<String> education, Map<String, String> parents, Set<String> subjects) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.images = images;
         this.education = education;
+        this.parents = parents;
+        this.subjects = subjects;
     }
 }

@@ -8,10 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @FieldDefaults(level=AccessLevel.PRIVATE)
 @Builder
@@ -45,13 +42,25 @@ public class Student {
     String email;
 
     @ElementCollection
-    @Column(name = "file_name")
     @CollectionTable(name = "student_images", joinColumns = @JoinColumn(name = "student_id"))
+    @Column(name = "file_name")
     Set<String> images = new HashSet<>();
 
     @ElementCollection
+    @CollectionTable(name = "student_subjects")
+    @OrderBy
+    @Column(name = "subject_name")
+    Set<String> subjects = new LinkedHashSet<>();
+
+    @ElementCollection
+    @CollectionTable(name = "education")
     @Column(name = "education")
     @OrderColumn
-    @CollectionTable(name = "education")
     List<String> education = new ArrayList<>();
+
+    @ElementCollection
+    @CollectionTable(name = "parents")
+    @Column(name = "parent_name")
+    @MapKeyColumn(name = "parent")
+    Map<String, String> parents = new HashMap<>();
 }

@@ -21,8 +21,8 @@ server:
 
 # Whether to enable the info endpoint
 management:
-  endpoint:
-    info:
+  info:
+    env:
       enabled: true
   endpoints:
     web:

@@ -47,7 +47,7 @@ spring:
     # DDL mode. This is actually a shortcut for the "hibernate.hbm2ddl.auto" property.
     # Defaults to "create-drop" when using an embedded database and no schema manager was detected.
     # Otherwise, defaults to "none".
-    ddl-auto: none
+    ddl-auto: update
 
 # -------------------------------------------------------------------------------------------------------------
 # DATA MIGRATION PROPERTIES
@@ -55,6 +55,6 @@ spring:
 
   flyway:
     # Whether to enable flyway.
-    enabled: true
+    enabled: false
     # Locations of migrations scripts. Can contain the special "{vendor}" placeholder to use vendor-specific locations.
     locations: classpath:/data/h2db/migrations

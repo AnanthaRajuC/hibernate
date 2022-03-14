@@ -14,6 +14,8 @@ public class StudentDTOAssembler {
                 .email(studentDTO.getEmail())
                 .images(studentDTO.getImages())
                 .education(studentDTO.getEducation())
+                .parents(studentDTO.getParents())
+                .subjects(studentDTO.getSubjects())
                 .build();
     }
 
@@ -25,6 +27,8 @@ public class StudentDTOAssembler {
                 .email(student.getEmail())
                 .images(student.getImages())
                 .education(student.getEducation())
+                .parents(student.getParents())
+                .subjects(student.getSubjects())
                 .build();
     }
 }
