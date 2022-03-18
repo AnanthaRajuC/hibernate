@@ -3,7 +3,9 @@
 --
 
 CREATE TABLE `student` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'Unique ID for each entry.',
+  `created_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Field representing the date the entity containing the field was created.',
+  `last_modified_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Field representing the date the entity containing the field was recently modified.',
   `billing_city` varchar(255) DEFAULT NULL,
   `billing_street` varchar(255) DEFAULT NULL,
   `billing_zipcode` varchar(255) DEFAULT NULL,

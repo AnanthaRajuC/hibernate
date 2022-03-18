@@ -16,12 +16,14 @@ import java.io.Serializable;
  *
  * @author Anantha Raju C
  */
-@AllArgsConstructor
-@MappedSuperclass
+
 @Getter
 @Setter
-@FieldDefaults(level= AccessLevel.PRIVATE)
+@AllArgsConstructor
 @NoArgsConstructor
+@MappedSuperclass
+@SuperBuilder
+@FieldDefaults(level= AccessLevel.PRIVATE)
 public class BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 

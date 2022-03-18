@@ -19,12 +19,14 @@ import java.util.Date;
  * @author <a href="mailto:arcswdev@gmail.com">Anantha Raju C</a>
  */
 
-@AllArgsConstructor
+
 @MappedSuperclass
 @Getter
 @Setter
+@AllArgsConstructor
 @FieldDefaults(level= AccessLevel.PRIVATE)
 @NoArgsConstructor
+@SuperBuilder
 public class AuditEntity extends BaseEntity{
 
     @Column(name="created_date", nullable=true, updatable=false)
@@ -36,7 +38,4 @@ public class AuditEntity extends BaseEntity{
     @Temporal(TemporalType.TIMESTAMP)
     @LastModifiedDate
     Date lastModifiedDate;
-
-    public AuditEntity(Long id, Date createdDate, Date lastModifiedDate) {
-    }
 }
