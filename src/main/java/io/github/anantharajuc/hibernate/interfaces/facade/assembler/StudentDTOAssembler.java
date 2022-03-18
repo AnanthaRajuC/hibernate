@@ -16,6 +16,8 @@ public class StudentDTOAssembler {
                 .education(studentDTO.getEducation())
                 .parents(studentDTO.getParents())
                 .subjects(studentDTO.getSubjects())
+                .homeAddress(studentDTO.getHomeAddress())
+                .billingAddress(studentDTO.getBillingAddress())
                 .build();
     }
 
@@ -29,6 +31,8 @@ public class StudentDTOAssembler {
                 .education(student.getEducation())
                 .parents(student.getParents())
                 .subjects(student.getSubjects())
+                .homeAddress(student.getHomeAddress())
+                .billingAddress(student.getBillingAddress())
                 .build();
     }
 }

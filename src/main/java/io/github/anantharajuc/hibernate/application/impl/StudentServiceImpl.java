@@ -4,6 +4,7 @@ import io.github.anantharajuc.hibernate.application.StudentService;
 import io.github.anantharajuc.hibernate.domain.model.project.Student;
 import io.github.anantharajuc.hibernate.domain.model.project.repo.StudentRepository;
 import io.github.anantharajuc.hibernate.exceptions.ResourceNotFoundException;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,7 @@ import org.springframework.util.StringUtils;
 import javax.transaction.Transactional;
 import java.util.Optional;
 
+@Log4j2
 @Service
 public class StudentServiceImpl implements StudentService {
 

@@ -8,7 +8,7 @@
 # EMBEDDED SERVER CONFIGURATION (ServerProperties)
 server:
   # Server HTTP port
-  port: 9091
+  port: 9093
   # When to include the "trace" attribute
   error:
     include-stacktrace: never

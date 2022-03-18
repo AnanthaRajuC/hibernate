@@ -63,4 +63,14 @@ public class Student {
     @Column(name = "parent_name")
     @MapKeyColumn(name = "parent")
     Map<String, String> parents = new HashMap<>();
+
+    @Embedded
+    Address homeAddress;
+
+    @AttributeOverrides({
+            @AttributeOverride(name="street", column=@Column(name="billing_street")),
+            @AttributeOverride(name="city", column=@Column(name="billing_city")),
+            @AttributeOverride(name="zipcode", column=@Column(name="billing_zipcode"))})
+    @Embedded
+    Address billingAddress;
 }

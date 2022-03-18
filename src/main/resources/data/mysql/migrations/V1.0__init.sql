@@ -2,10 +2,16 @@
 -- Table structure for `student`
 --
 
-CREATE TABLE `student`(
+CREATE TABLE `student` (
   `id` bigint NOT NULL AUTO_INCREMENT,
+  `billing_city` varchar(255) DEFAULT NULL,
+  `billing_street` varchar(255) DEFAULT NULL,
+  `billing_zipcode` varchar(255) DEFAULT NULL,
   `email` varchar(50) NOT NULL,
   `first_name` varchar(50) NOT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `street` varchar(255) DEFAULT NULL,
+  `zipcode` varchar(255) DEFAULT NULL,
   `last_name` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
