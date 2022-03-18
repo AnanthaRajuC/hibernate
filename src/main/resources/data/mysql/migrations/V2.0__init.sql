@@ -1,5 +1,6 @@
 
-INSERT INTO `student`(`email`,`first_name`,`last_name`,`city`,`street`,`zipcode`,`billing_city`,`billing_street`,`billing_zipcode`) VALUES ('example@domain.com','john','doe','tucson','jump street', '90210','bc','bs','90212');
+INSERT INTO `student`(`email`,`first_name`,`gender`,`last_name`,`city`,`street`,`zipcode`,`billing_city`,`billing_street`,`billing_zipcode`)
+VALUES ('example@domain.com','john','MALE','doe','tucson','jump street', '90210','bc','bs','90212');
 
 INSERT INTO `student_images`(`student_id`,`file_name`) VALUES (1,'file01');
 INSERT INTO `student_images`(`student_id`,`file_name`) VALUES (1,'file02');

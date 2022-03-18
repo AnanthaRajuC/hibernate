@@ -1,5 +1,6 @@
 package io.github.anantharajuc.hibernate.domain.model.project;
 
+import io.github.anantharajuc.hibernate.domain.model.project.enums.Gender;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.validator.constraints.Length;
@@ -40,6 +41,10 @@ public class Student {
     @Length(message = "Must be a valid email id between 3 and 50 characters.", min = 3, max = 50)
     @NotNull(message = "Email cannot be blank.")
     String email;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "gender")
+    Gender gender;
 
     @ElementCollection
     @CollectionTable(name = "student_images", joinColumns = @JoinColumn(name = "student_id"))

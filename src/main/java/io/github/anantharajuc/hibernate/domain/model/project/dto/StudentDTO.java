@@ -1,6 +1,7 @@
 package io.github.anantharajuc.hibernate.domain.model.project.dto;
 
 import io.github.anantharajuc.hibernate.domain.model.project.Address;
+import io.github.anantharajuc.hibernate.domain.model.project.enums.Gender;
 import lombok.Builder;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
@@ -32,9 +33,10 @@ public class StudentDTO implements Serializable {
     private final Set<String> subjects;
     private final Address homeAddress;
     private final Address billingAddress;
+    private final Gender gender;
 
     @Builder
-    public StudentDTO(Long id, String firstName, String lastName, String email, Set<String> images, List<String> education, Map<String, String> parents, Set<String> subjects, Address homeAddress, Address billingAddress) {
+    public StudentDTO(Long id, String firstName, String lastName, String email, Set<String> images, List<String> education, Map<String, String> parents, Set<String> subjects, Address homeAddress, Address billingAddress, Gender gender) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -45,5 +47,6 @@ public class StudentDTO implements Serializable {
         this.subjects = subjects;
         this.homeAddress = homeAddress;
         this.billingAddress = billingAddress;
+        this.gender = gender;
     }
 }

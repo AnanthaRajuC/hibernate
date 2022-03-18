@@ -9,6 +9,7 @@ CREATE TABLE `student` (
   `billing_zipcode` varchar(255) DEFAULT NULL,
   `email` varchar(50) NOT NULL,
   `first_name` varchar(50) NOT NULL,
+  `gender` varchar(255) DEFAULT NULL,
   `city` varchar(255) DEFAULT NULL,
   `street` varchar(255) DEFAULT NULL,
   `zipcode` varchar(255) DEFAULT NULL,
