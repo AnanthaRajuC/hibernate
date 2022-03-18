@@ -1,5 +1,6 @@
 package io.github.anantharajuc.hibernate.domain.model.project;
 
+import jdk.jshell.Snippet;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.validator.constraints.Length;
@@ -10,19 +11,17 @@ import javax.validation.constraints.NotNull;
 import java.util.*;
 
 @FieldDefaults(level=AccessLevel.PRIVATE)
-@Builder
-@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
 @ToString
 @Entity
 @Table(name = "student", schema = "jhac")
-public class Student {
-    @Id
+public class Student extends BaseEntity{
+    /*@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    Long id;
+    Long id;*/
 
     @Email
     @Column(name = "email")
@@ -65,4 +64,17 @@ public class Student {
             @AttributeOverride(name="zipcode", column=@Column(name="billing_zipcode"))})
     @Embedded
     Address billingAddress;
+
+    @Builder
+    public Student(Long id, String email, Set<String> images, Set<String> subjects, List<String> education, Map<String, String> parents, Person person, Address homeAddress, Address billingAddress) {
+        super(id);
+        this.email = email;
+        this.images = images;
+        this.subjects = subjects;
+        this.education = education;
+        this.parents = parents;
+        this.person = person;
+        this.homeAddress = homeAddress;
+        this.billingAddress = billingAddress;
+    }
 }

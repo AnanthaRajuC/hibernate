@@ -1,3 +1,4 @@
+/*
 package io.github.anantharajuc.hibernate.domain.model.project;
 
 import lombok.*;
@@ -12,12 +13,14 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import java.util.Date;
 
+*/
 /**
  * Simple JavaBean domain object with id, created on, created by, updated on, updated by properties. Used as a base class for objects
  * needing this property.
  *
  * @author <a href="mailto:arcswdev@gmail.com">Anantha Raju C</a>
- */
+ *//*
+
 @MappedSuperclass
 @Getter
 @Setter
@@ -37,3 +40,4 @@ public class AuditEntity extends BaseEntity{
     @LastModifiedDate
     Date lastModifiedDate;
 }
+*/

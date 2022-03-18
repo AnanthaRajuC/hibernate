@@ -1,11 +1,12 @@
 package io.github.anantharajuc.hibernate.interfaces.facade.assembler;
 
+import io.github.anantharajuc.hibernate.domain.model.project.BaseEntity;
 import io.github.anantharajuc.hibernate.domain.model.project.Student;
 import io.github.anantharajuc.hibernate.domain.model.project.dto.StudentDTO;
 import org.springframework.stereotype.Component;
 
 @Component
-public class StudentDTOAssembler {
+public class StudentDTOAssembler extends BaseEntity {
     public Student fromDTO(final StudentDTO studentDTO){
         return Student.builder()
                 .id(studentDTO.getId())

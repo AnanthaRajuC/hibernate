@@ -1,17 +1,19 @@
 package io.github.anantharajuc.hibernate.domain.model.project.dto;
 
 import io.github.anantharajuc.hibernate.domain.model.project.Address;
+import io.github.anantharajuc.hibernate.domain.model.project.BaseEntity;
 import io.github.anantharajuc.hibernate.domain.model.project.Person;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 
-import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 @Data
-public class StudentDTO implements Serializable {
+@Getter
+public class StudentDTO /*extends BaseEntity *//*implements Serializable */{
     private final Long id;
     private final String email;
     private final Set<String> images;
