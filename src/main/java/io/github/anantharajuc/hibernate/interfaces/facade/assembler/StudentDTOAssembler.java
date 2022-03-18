@@ -9,9 +9,7 @@ public class StudentDTOAssembler {
     public Student fromDTO(final StudentDTO studentDTO){
         return Student.builder()
                 .id(studentDTO.getId())
-                .firstName(studentDTO.getFirstName())
-                .lastName(studentDTO.getLastName())
-                .gender(studentDTO.getGender())
+                .person(studentDTO.getPerson())
                 .email(studentDTO.getEmail())
                 .images(studentDTO.getImages())
                 .education(studentDTO.getEducation())
@@ -25,9 +23,7 @@ public class StudentDTOAssembler {
     public StudentDTO toDTO(final Student student){
         return StudentDTO.builder()
                 .id(student.getId())
-                .firstName(student.getFirstName())
-                .lastName(student.getLastName())
-                .gender(student.getGender())
+                .person(student.getPerson())
                 .email(student.getEmail())
                 .images(student.getImages())
                 .education(student.getEducation())
