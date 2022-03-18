@@ -1,15 +1,17 @@
 package io.github.anantharajuc.hibernate.interfaces.facade.assembler;
 
-import io.github.anantharajuc.hibernate.domain.model.project.BaseEntity;
+import io.github.anantharajuc.hibernate.domain.model.project.AuditEntity;
 import io.github.anantharajuc.hibernate.domain.model.project.Student;
 import io.github.anantharajuc.hibernate.domain.model.project.dto.StudentDTO;
 import org.springframework.stereotype.Component;
 
 @Component
-public class StudentDTOAssembler extends BaseEntity {
+public class StudentDTOAssembler extends AuditEntity {
     public Student fromDTO(final StudentDTO studentDTO){
         return Student.builder()
                 .id(studentDTO.getId())
+                .createdDate(studentDTO.getCreatedDate())
+                .lastModifiedDate(studentDTO.getLastModifiedDate())
                 .person(studentDTO.getPerson())
                 .email(studentDTO.getEmail())
                 .images(studentDTO.getImages())
@@ -24,6 +26,8 @@ public class StudentDTOAssembler extends BaseEntity {
     public StudentDTO toDTO(final Student student){
         return StudentDTO.builder()
                 .id(student.getId())
+                .createdDate(student.getCreatedDate())
+                .lastModifiedDate(student.getLastModifiedDate())
                 .person(student.getPerson())
                 .email(student.getEmail())
                 .images(student.getImages())

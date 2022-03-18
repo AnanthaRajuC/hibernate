@@ -1,8 +1,8 @@
 package io.github.anantharajuc.hibernate.domain.model.project;
 
-import jdk.jshell.Snippet;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+import lombok.experimental.SuperBuilder;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
@@ -12,16 +12,15 @@ import java.util.*;
 
 @FieldDefaults(level=AccessLevel.PRIVATE)
 @NoArgsConstructor
+/*@AllArgsConstructor*/
+/*@Builder*/
+/*@SuperBuilder*/
 @Getter
 @Setter
 @ToString
 @Entity
 @Table(name = "student", schema = "jhac")
-public class Student extends BaseEntity{
-    /*@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    Long id;*/
+public class Student extends AuditEntity{
 
     @Email
     @Column(name = "email")
@@ -66,8 +65,8 @@ public class Student extends BaseEntity{
     Address billingAddress;
 
     @Builder
-    public Student(Long id, String email, Set<String> images, Set<String> subjects, List<String> education, Map<String, String> parents, Person person, Address homeAddress, Address billingAddress) {
-        super(id);
+    public Student(Long id, Date createdDate, Date lastModifiedDate, String email, Set<String> images, Set<String> subjects, List<String> education, Map<String, String> parents, Person person, Address homeAddress, Address billingAddress) {
+        super(id, createdDate, lastModifiedDate);
         this.email = email;
         this.images = images;
         this.subjects = subjects;
