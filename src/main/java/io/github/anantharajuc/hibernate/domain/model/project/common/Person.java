@@ -1,6 +1,6 @@
-package io.github.anantharajuc.hibernate.domain.model.project;
+package io.github.anantharajuc.hibernate.domain.model.project.common;
 
-import io.github.anantharajuc.hibernate.domain.model.project.enums.Gender;
+import io.github.anantharajuc.hibernate.domain.model.project.common.enums.Gender;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.validator.constraints.Length;

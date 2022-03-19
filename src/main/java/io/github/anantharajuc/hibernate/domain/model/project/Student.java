@@ -1,5 +1,8 @@
 package io.github.anantharajuc.hibernate.domain.model.project;
 
+import io.github.anantharajuc.hibernate.domain.model.project.common.Address;
+import io.github.anantharajuc.hibernate.domain.model.project.common.AuditEntity;
+import io.github.anantharajuc.hibernate.domain.model.project.common.Person;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.SuperBuilder;
@@ -20,7 +23,7 @@ import java.util.*;
 @Table(name = "student", schema = "jhac")
 @SuperBuilder
 @EntityListeners(AuditingEntityListener.class)
-public class Student extends AuditEntity{
+public class Student extends AuditEntity {
 
     @Embedded
     Person person;

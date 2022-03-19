@@ -1,4 +1,4 @@
-package io.github.anantharajuc.hibernate.domain.model.project;
+package io.github.anantharajuc.hibernate.domain.model.project.common;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -27,7 +27,7 @@ import java.util.Date;
 @FieldDefaults(level= AccessLevel.PRIVATE)
 @NoArgsConstructor
 @SuperBuilder
-public class AuditEntity extends BaseEntity{
+public class AuditEntity extends BaseEntity {
 
     @Column(name="created_date", nullable=true, updatable=false)
     @Temporal(TemporalType.TIMESTAMP)

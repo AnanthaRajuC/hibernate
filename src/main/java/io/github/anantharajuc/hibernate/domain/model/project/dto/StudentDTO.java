@@ -1,8 +1,8 @@
 package io.github.anantharajuc.hibernate.domain.model.project.dto;
 
-import io.github.anantharajuc.hibernate.domain.model.project.Address;
-import io.github.anantharajuc.hibernate.domain.model.project.AuditEntity;
-import io.github.anantharajuc.hibernate.domain.model.project.Person;
+import io.github.anantharajuc.hibernate.domain.model.project.common.Address;
+import io.github.anantharajuc.hibernate.domain.model.project.common.AuditEntity;
+import io.github.anantharajuc.hibernate.domain.model.project.common.Person;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
