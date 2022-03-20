@@ -14,7 +14,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:9093/api/v1/students/4",
+							"raw": "http://localhost:9093/api/v1/students/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -24,7 +24,7 @@
 								"api",
 								"v1",
 								"students",
-								"4"
+								"1"
 							]
 						}
 					},
@@ -36,7 +36,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:9093/api/v1/students/?page=1&size=100&direction=DESC",
+							"raw": "http://localhost:9093/api/v1/students/?page=1&size=100&direction=Desc",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -59,7 +59,7 @@
 								},
 								{
 									"key": "direction",
-									"value": "DESC"
+									"value": "Desc"
 								}
 							]
 						}
@@ -73,7 +73,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"person\": {\n        \"firstName\": \"john\",\n        \"lastName\": \"doe\",\n        \"gender\": \"MALE\"\n    },\n    \"contact\": {\n        \"email\": \"example4@domain.com\",\n        \"phone\": null\n    },\n    \"homeAddress\": {\n        \"city\": \"tucson\",\n        \"street\": \"jump street\",\n        \"zipcode\": \"90210\"\n    },\n    \"billingAddress\": {\n        \"city\": \"bc\",\n        \"street\": \"bs\",\n        \"zipcode\": \"90212\"\n    },\n    \"course\": {\n        \"images\": [\n            \"file01\",\n            \"file02\"\n        ],\n        \"subjects\": [\n            \"subject 1\",\n            \"subject 3\",\n            \"subject 5\"\n        ],\n        \"education\": [\n            \"primary school\",\n            \"middle school\"\n        ]\n    }\n}",
+							"raw": "{\n    \"person\": {\n        \"firstName\": \"john\",\n        \"lastName\": \"doe\",\n        \"gender\": \"MALE\"\n    },\n    \"contact\": {\n        \"email\": \"example3@domain.com\",\n        \"phone\": \"7777777771\"\n    },\n    \"homeAddress\": {\n        \"city\": \"c11\",\n        \"street\": \"s11\",\n        \"zipcode\": \"90310\"\n    },\n    \"billingAddress\": {\n        \"city\": \"bc1\",\n        \"street\": \"bs1\",\n        \"zipcode\": \"90311\"\n    },\n    \"course\": {\n        \"images\": [\n            \"file01\",\n            \"file02\"\n        ],\n        \"subjects\": [\n            \"subject 1\",\n            \"subject 3\",\n            \"subject 5\"\n        ],\n        \"education\": [\n            \"primary school\",\n            \"middle school\"\n        ]\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -108,7 +108,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:9093/api/v1/instructors/4",
+							"raw": "http://localhost:9093/api/v1/instructors/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -118,7 +118,7 @@
 								"api",
 								"v1",
 								"instructors",
-								"4"
+								"1"
 							]
 						}
 					},
@@ -167,7 +167,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"person\": {\n        \"firstName\": \"johni\",\n        \"lastName\": \"doe\",\n        \"gender\": \"MALE\"\n    },\n    \"contact\": {\n        \"email\": \"example5@domain.com\",\n        \"phone\": null\n    },\n    \"homeAddress\": {\n        \"city\": \"tucson\",\n        \"street\": \"jump street\",\n        \"zipcode\": \"90210\"\n    },\n    \"billingAddress\": {\n        \"city\": \"bc\",\n        \"street\": \"bs\",\n        \"zipcode\": \"90212\"\n    },\n    \"course\": {\n        \"images\": [\n            \"file01\",\n            \"file02\"\n        ],\n        \"subjects\": [\n            \"subject 1\",\n            \"subject 3\",\n            \"subject 5\"\n        ],\n        \"education\": [\n            \"primary school\",\n            \"middle school\"\n        ]\n    }\n}",
+							"raw": "{\n    \"person\": {\n        \"firstName\": \"john\",\n        \"lastName\": \"doe\",\n        \"gender\": \"MALE\"\n    },\n    \"contact\": {\n        \"email\": \"instructor3@domain.com\",\n        \"phone\": \"7777777771\"\n    },\n    \"homeAddress\": {\n        \"city\": \"c11\",\n        \"street\": \"s11\",\n        \"zipcode\": \"90310\"\n    },\n    \"billingAddress\": {\n        \"city\": \"bc1\",\n        \"street\": \"bs1\",\n        \"zipcode\": \"90311\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"

@@ -31,7 +31,7 @@ spring:
       # DDL mode. This is actually a shortcut for the "hibernate.hbm2ddl.auto" property.
       # Defaults to "create-drop" when using an embedded database and no schema manager was detected.
       # Otherwise, defaults to "none".
-      ddl-auto: update
+      ddl-auto: none
       # Fully qualified name of the physical naming strategy.
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
@@ -42,6 +42,6 @@ spring:
 
   flyway:
     # Whether to enable flyway.
-    enabled: false
+    enabled: true
     # Locations of migrations scripts. Can contain the special "{vendor}" placeholder to use vendor-specific locations.
     locations: classpath:/data/mysql/migrations

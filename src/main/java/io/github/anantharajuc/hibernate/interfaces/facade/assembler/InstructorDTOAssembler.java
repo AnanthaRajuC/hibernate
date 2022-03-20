@@ -11,7 +11,10 @@ public class InstructorDTOAssembler {
         return Instructor.builder()
                 .id(instructorDTO.getId())
                 .person(instructorDTO.getPerson())
-                .contact(Contact.builder().email(instructorDTO.getContact().getEmail()).build())
+                .contact(Contact.builder()
+                        .email(instructorDTO.getContact().getEmail())
+                        .phone(instructorDTO.getContact().getPhone())
+                        .build())
                 .homeAddress(instructorDTO.getHomeAddress())
                 .billingAddress(instructorDTO.getBillingAddress())
                 .build();

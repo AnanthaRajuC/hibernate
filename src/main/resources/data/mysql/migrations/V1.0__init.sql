@@ -10,6 +10,7 @@ CREATE TABLE `student` (
   `billing_street` varchar(255) DEFAULT NULL,
   `billing_zipcode` varchar(255) DEFAULT NULL,
   `email` varchar(50) NOT NULL,
+  `phone` varchar(255) DEFAULT NULL,
   `first_name` varchar(50) NOT NULL,
   `gender` varchar(255) DEFAULT NULL,
   `city` varchar(255) DEFAULT NULL,
@@ -18,6 +19,29 @@ CREATE TABLE `student` (
   `last_name` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Table structure for `instructor`
+
+CREATE TABLE `instructor` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'Unique ID for each entry.',
+  `created_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Field representing the date the entity containing the field was created.',
+  `last_modified_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Field representing the date the entity containing the field was recently modified.',
+  `billing_city` varchar(255) DEFAULT NULL,
+  `billing_street` varchar(255) DEFAULT NULL,
+  `billing_zipcode` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `street` varchar(255) DEFAULT NULL,
+  `zipcode` varchar(255) DEFAULT NULL,
+  `first_name` varchar(255) NOT NULL,
+  `gender` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
 
 --
 -- Table structure for `student_images`
@@ -43,6 +67,17 @@ CREATE TABLE `education` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
+-- Table structure for `subjects`
+--
+
+CREATE TABLE `student_subjects` (
+  `Student_id` bigint NOT NULL,
+  `subject_name` varchar(255) DEFAULT NULL,
+  KEY `FK_student_id_subjects` (`Student_id`),
+  CONSTRAINT `FK_student_id_subjects` FOREIGN KEY (`Student_id`) REFERENCES `student` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
 -- Table structure for `education`
 --
 
@@ -52,15 +87,4 @@ CREATE TABLE `parents` (
   `parent` varchar(255) NOT NULL,
   PRIMARY KEY (`Student_id`,`parent`),
   CONSTRAINT `FK_student_id_parents` FOREIGN KEY (`Student_id`) REFERENCES `student` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Table structure for `subjects`
---
-
-CREATE TABLE `student_subjects` (
-  `Student_id` bigint NOT NULL,
-  `subject_name` varchar(255) DEFAULT NULL,
-  KEY `FK_student_id_subjects` (`Student_id`),
-  CONSTRAINT `FK_student_id_subjects` FOREIGN KEY (`Student_id`) REFERENCES `student` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

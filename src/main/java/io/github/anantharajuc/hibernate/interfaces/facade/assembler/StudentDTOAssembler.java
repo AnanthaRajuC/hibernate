@@ -10,21 +10,11 @@ public class StudentDTOAssembler{
     public Student fromDTO(final StudentDTO studentDTO){
         return Student.builder()
                 .id(studentDTO.getId())
-
-                /*.person(Person.builder()
-                        .firstName(studentDTO.getPerson().getFirstName())
-                        .lastName(studentDTO.getPerson().getLastName())
-                        .gender(studentDTO.getPerson().getGender())
-                        .parents(studentDTO.getPerson().getParents())
-                        .build())*/
-
-                /*.email(studentDTO.getEmail())*/
-                /*.images(studentDTO.getImages())*/
-                /*.education(studentDTO.getEducation())*/
-                /*.parents(studentDTO.getParents())*/
-                /*.subjects(studentDTO.getSubjects())*/
                 .person(studentDTO.getPerson())
-                .contact(Contact.builder().email(studentDTO.getContact().getEmail()).build())
+                .contact(Contact.builder()
+                        .email(studentDTO.getContact().getEmail())
+                        .phone(studentDTO.getContact().getPhone())
+                        .build())
                 .homeAddress(studentDTO.getHomeAddress())
                 .billingAddress(studentDTO.getBillingAddress())
                 .course(studentDTO.getCourse())
