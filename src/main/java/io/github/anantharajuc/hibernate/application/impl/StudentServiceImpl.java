@@ -7,10 +7,14 @@ import io.github.anantharajuc.hibernate.exceptions.ResourceNotFoundException;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import javax.transaction.Transactional;
+import java.util.Objects;
 import java.util.Optional;
 
 @Log4j2
@@ -50,5 +54,21 @@ public class StudentServiceImpl implements StudentService {
         }else {
             return studentRepository.save(student);
         }
+    }
+
+    @Transactional
+    @Override
+    public Page<Student> getStudents(Integer page, Integer size, Sort sort) {
+        log.info("getStudents() called  with: page = {}, size = {}, sort = {}", page, size, sort);
+        Example<Student> studentExample = Example.of(Student.builder().build());
+        return studentRepository.findAll(studentExample, PageRequest.of(page, size, sort));
+    }
+
+    @Override
+    public Student updateStudent(Student studentToBeUpdated) {
+        if (!studentRepository.existsById(Objects.requireNonNull(studentToBeUpdated.getId(), "Student Id cannot be null"))) {
+            throw new ResourceNotFoundException("Student","id",studentToBeUpdated.getId());
+        }
+        return studentRepository.save(studentToBeUpdated);
     }
 }
