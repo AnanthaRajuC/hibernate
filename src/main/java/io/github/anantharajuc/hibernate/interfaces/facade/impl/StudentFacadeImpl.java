@@ -1,7 +1,7 @@
 package io.github.anantharajuc.hibernate.interfaces.facade.impl;
 
 import io.github.anantharajuc.hibernate.application.StudentService;
-import io.github.anantharajuc.hibernate.domain.model.project.Student;
+import io.github.anantharajuc.hibernate.domain.model.project._mapped_superclass.Student;
 import io.github.anantharajuc.hibernate.domain.model.project.dto.PageDTO;
 import io.github.anantharajuc.hibernate.domain.model.project.dto.StudentDTO;
 import io.github.anantharajuc.hibernate.interfaces.facade.StudentFacade;

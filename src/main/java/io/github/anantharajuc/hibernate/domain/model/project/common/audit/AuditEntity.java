@@ -1,4 +1,4 @@
-package io.github.anantharajuc.hibernate.domain.model.project.common;
+package io.github.anantharajuc.hibernate.domain.model.project.common.audit;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;

@@ -1,7 +1,7 @@
 package io.github.anantharajuc.hibernate.application.impl;
 
 import io.github.anantharajuc.hibernate.application.StudentService;
-import io.github.anantharajuc.hibernate.domain.model.project.Student;
+import io.github.anantharajuc.hibernate.domain.model.project._mapped_superclass.Student;
 import io.github.anantharajuc.hibernate.domain.model.project.common.Contact;
 import io.github.anantharajuc.hibernate.domain.model.project.repo.StudentRepository;
 import io.github.anantharajuc.hibernate.exceptions.ResourceNotFoundException;

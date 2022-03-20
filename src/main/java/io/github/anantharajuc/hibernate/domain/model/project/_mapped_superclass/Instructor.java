@@ -1,7 +1,7 @@
-package io.github.anantharajuc.hibernate.domain.model.project;
+package io.github.anantharajuc.hibernate.domain.model.project._mapped_superclass;
 
 import io.github.anantharajuc.hibernate.domain.model.project.common.Address;
-import io.github.anantharajuc.hibernate.domain.model.project.common.AuditEntity;
+import io.github.anantharajuc.hibernate.domain.model.project.common.audit.AuditEntity;
 import io.github.anantharajuc.hibernate.domain.model.project.common.Contact;
 import io.github.anantharajuc.hibernate.domain.model.project.common.Person;
 import lombok.*;

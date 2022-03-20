@@ -1,6 +1,8 @@
 package io.github.anantharajuc.hibernate.domain.model.project.dto;
 
-import io.github.anantharajuc.hibernate.domain.model.project.common.*;
+import io.github.anantharajuc.hibernate.domain.model.project.common.Address;
+import io.github.anantharajuc.hibernate.domain.model.project.common.Contact;
+import io.github.anantharajuc.hibernate.domain.model.project.common.Person;
 import io.github.anantharajuc.hibernate.domain.model.project.common.audit.AuditEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,10 +13,9 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @SuperBuilder
 @AllArgsConstructor
-public class StudentDTO extends AuditEntity {
+public class InstructorDTO extends AuditEntity {
     private final Person person;
     private final Contact contact;
     private final Address homeAddress;
     private final Address billingAddress;
-    private final Course course;
 }

@@ -1,6 +1,6 @@
 package io.github.anantharajuc.hibernate.domain.model.project.dto;
 
-import io.github.anantharajuc.hibernate.domain.model.project.common.AuditEntity;
+import io.github.anantharajuc.hibernate.domain.model.project.common.audit.AuditEntity;
 
 import java.util.Set;
 
