@@ -2,6 +2,7 @@ package io.github.anantharajuc.hibernate.application.impl;
 
 import io.github.anantharajuc.hibernate.application.StudentService;
 import io.github.anantharajuc.hibernate.domain.model.project.Student;
+import io.github.anantharajuc.hibernate.domain.model.project.common.Contact;
 import io.github.anantharajuc.hibernate.domain.model.project.repo.StudentRepository;
 import io.github.anantharajuc.hibernate.exceptions.ResourceNotFoundException;
 import lombok.extern.log4j.Log4j2;
@@ -44,13 +45,16 @@ public class StudentServiceImpl implements StudentService {
     @Transactional
     @Override
     public Student createStudent(Student student) {
-        if(student.equals(null) || !StringUtils.hasText(student.getEmail())){
+        if(student.equals(null) || !StringUtils.hasText(student.getContact().getEmail())){
             logError.info("Invalid Input");
             throw new RuntimeException("Invalid Input");
         }
-        if(studentRepository.count(Example.of(Student.builder().email(student.getEmail()).build()))==1L){
-            logError.info("Student with email %s already present"+student.getEmail());
-            throw new RuntimeException(String.format("Student with email %s already present", student.getEmail()));
+        /*if(studentRepository.count(Example.of(Student.builder().email(student.getContact().getEmail()).build()))==1L){*/
+        if(studentRepository.count(Example.of(Student.builder()
+                .contact(Contact.builder().email(student.getContact().getEmail()).build())
+                .build()))==1L){
+            logError.info("Student with email %s already present"+student.getContact().getEmail());
+            throw new RuntimeException(String.format("Student with email %s already present", student.getContact().getEmail()));
         }else {
             return studentRepository.save(student);
         }

@@ -1,6 +1,9 @@
 package io.github.anantharajuc.hibernate.interfaces.facade.assembler;
 
 import io.github.anantharajuc.hibernate.domain.model.project.Student;
+import io.github.anantharajuc.hibernate.domain.model.project.common.Contact;
+import io.github.anantharajuc.hibernate.domain.model.project.common.Course;
+import io.github.anantharajuc.hibernate.domain.model.project.common.Person;
 import io.github.anantharajuc.hibernate.domain.model.project.dto.StudentDTO;
 import org.springframework.stereotype.Component;
 
@@ -10,11 +13,21 @@ public class StudentDTOAssembler{
         return Student.builder()
                 .id(studentDTO.getId())
                 .person(studentDTO.getPerson())
-                .email(studentDTO.getEmail())
-                .images(studentDTO.getImages())
-                .education(studentDTO.getEducation())
-                .parents(studentDTO.getParents())
-                .subjects(studentDTO.getSubjects())
+
+                /*.person(Person.builder()
+                        .firstName(studentDTO.getPerson().getFirstName())
+                        .lastName(studentDTO.getPerson().getLastName())
+                        .gender(studentDTO.getPerson().getGender())
+                        .parents(studentDTO.getPerson().getParents())
+                        .build())*/
+
+                .contact(Contact.builder().email(studentDTO.getContact().getEmail()).build())
+                /*.email(studentDTO.getEmail())*/
+                .course(studentDTO.getCourse())
+                /*.images(studentDTO.getImages())*/
+                /*.education(studentDTO.getEducation())*/
+                /*.parents(studentDTO.getParents())*/
+                /*.subjects(studentDTO.getSubjects())*/
                 .homeAddress(studentDTO.getHomeAddress())
                 .billingAddress(studentDTO.getBillingAddress())
                 .build();
@@ -26,11 +39,8 @@ public class StudentDTOAssembler{
                 .createdDate(student.getCreatedDate())
                 .lastModifiedDate(student.getLastModifiedDate())
                 .person(student.getPerson())
-                .email(student.getEmail())
-                .images(student.getImages())
-                .education(student.getEducation())
-                .parents(student.getParents())
-                .subjects(student.getSubjects())
+                .contact(student.getContact())
+                .course(student.getCourse())
                 .homeAddress(student.getHomeAddress())
                 .billingAddress(student.getBillingAddress())
                 .build();

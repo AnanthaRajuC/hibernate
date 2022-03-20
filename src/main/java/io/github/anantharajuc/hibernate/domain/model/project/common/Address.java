@@ -14,12 +14,15 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Address{
 
-    @Column(name = "street")
-    String street;
-
     @Column(name = "city")
     String city;
 
+    @Column(name = "street")
+    String street;
+
     @Column(name = "zipcode")
     String zipcode;
+
+    /*@Column(name = "country")
+    String country;*/
 }

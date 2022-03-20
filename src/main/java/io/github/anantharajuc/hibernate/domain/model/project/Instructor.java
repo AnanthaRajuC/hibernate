@@ -1,6 +1,9 @@
 package io.github.anantharajuc.hibernate.domain.model.project;
 
-import io.github.anantharajuc.hibernate.domain.model.project.common.*;
+import io.github.anantharajuc.hibernate.domain.model.project.common.Address;
+import io.github.anantharajuc.hibernate.domain.model.project.common.AuditEntity;
+import io.github.anantharajuc.hibernate.domain.model.project.common.Contact;
+import io.github.anantharajuc.hibernate.domain.model.project.common.Person;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.SuperBuilder;
@@ -8,16 +11,16 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 
-@FieldDefaults(level=AccessLevel.PRIVATE)
+@FieldDefaults(level= AccessLevel.PRIVATE)
 @NoArgsConstructor
 @Getter
 @Setter
 @ToString
 @Entity
-@Table(name="student", schema="jhac")
+@Table(name="instructor", schema="jhac")
 @SuperBuilder
 @EntityListeners(AuditingEntityListener.class)
-public class Student extends AuditEntity {
+public class Instructor extends AuditEntity {
 
     @Embedded
     Person person;
@@ -34,7 +37,4 @@ public class Student extends AuditEntity {
             @AttributeOverride(name="zipcode", column=@Column(name="billing_zipcode"))})
     @Embedded
     Address billingAddress;
-
-    @Embedded
-    Course course;
 }
