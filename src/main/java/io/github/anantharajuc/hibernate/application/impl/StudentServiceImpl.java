@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -32,6 +33,8 @@ public class StudentServiceImpl implements StudentService {
     @Transactional
     @Override
     public Student getStudentById(Long StudentId) {
+        log.info("count: "+studentRepository.count());
+        log.info("existsById: "+studentRepository.existsById(StudentId));
         final Optional<Student> student = studentRepository.findById(StudentId);
         if (student.isPresent()) {
             return student.get();
@@ -69,10 +72,22 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
+    public List<Student> getStudentsByIds(List<Long> studentIds) {
+        return studentRepository.findAllById(studentIds);
+    }
+
+    @Override
     public Student updateStudent(Student studentToBeUpdated) {
         if (!studentRepository.existsById(Objects.requireNonNull(studentToBeUpdated.getId(), "Student Id cannot be null"))) {
             throw new ResourceNotFoundException("Student","id",studentToBeUpdated.getId());
         }
         return studentRepository.save(studentToBeUpdated);
+    }
+
+    @Override
+    public void deleteStudentById(Long studentId, String reason) {
+        Student student = getStudentById(studentId);
+        student.deactivate(reason);
+        studentRepository.save(student);
     }
 }

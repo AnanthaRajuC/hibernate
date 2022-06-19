@@ -53,4 +53,15 @@ public class StudentFacadeImpl implements StudentFacade {
         studentDTOs.forEach(studentDTO -> updatedStudentList.add(studentService.updateStudent(studentDTOAssembler.fromDTO(studentDTO))));
         return updatedStudentList.stream().map(studentDTOAssembler::toDTO).collect(Collectors.toList());
     }
+
+    @Override
+    public List<StudentDTO> getStudentsByIds(List<Long> studentIds) {
+        List<Student> studentsList = studentService.getStudentsByIds(studentIds);
+        return studentsList.stream().map(student -> studentDTOAssembler.toDTO(student)).collect(Collectors.toList());
+    }
+
+    @Override
+    public void deleteStudentById(Long studentId, String reason) {
+        studentService.deleteStudentById(studentId,reason);
+    }
 }

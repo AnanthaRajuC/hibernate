@@ -4,11 +4,9 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.SuperBuilder;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.UUID;
 
 /**
  * Simple JavaBean domain object with an id property.
@@ -24,10 +22,20 @@ import java.io.Serializable;
 @MappedSuperclass
 @SuperBuilder
 @FieldDefaults(level= AccessLevel.PRIVATE)
-public class BaseEntity implements Serializable {
+public abstract class BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
+
+    @Column(name = "uuid", nullable = false, updatable = false, unique = true)
+    private String uuid;
+
+    @PrePersist
+    private void prePersistBaseEntity() {
+        if (this.uuid == null) {
+            this.uuid = UUID.randomUUID().toString();
+        }
+    }
 }

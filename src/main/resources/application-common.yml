@@ -2,13 +2,23 @@
 # https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html
 
 # -------------------------------------------------------------------------------------------------------------
+# SWAGGER PROPERTIES
+# -------------------------------------------------------------------------------------------------------------
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api-docs
+
+# -------------------------------------------------------------------------------------------------------------
 # SERVER PROPERTIES
 # -------------------------------------------------------------------------------------------------------------
 
 # EMBEDDED SERVER CONFIGURATION (ServerProperties)
 server:
   # Server HTTP port
-  port: 9093
+  port: 8080
   # When to include the "trace" attribute
   error:
     include-stacktrace: never

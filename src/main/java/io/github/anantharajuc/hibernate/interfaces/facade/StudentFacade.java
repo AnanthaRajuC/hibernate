@@ -13,4 +13,8 @@ public interface StudentFacade {
     PageDTO<StudentDTO> getStudents(Integer page, Integer size, String sortBy, String direction);
 
     List<StudentDTO> updateStudent(List<StudentDTO> studentDTO);
+
+    List<StudentDTO> getStudentsByIds(List<Long> studentIds);
+
+    void deleteStudentById(Long studentId, String reason);
 }
