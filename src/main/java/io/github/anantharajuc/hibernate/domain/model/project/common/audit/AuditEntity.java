@@ -3,10 +3,8 @@ package io.github.anantharajuc.hibernate.domain.model.project.common.audit;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.SuperBuilder;
-import org.hibernate.annotations.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.util.Calendar;
@@ -18,10 +16,6 @@ import java.util.Date;
  *
  * @author <a href="mailto:arcswdev@gmail.com">Anantha Raju C</a>
  */
-@EntityListeners({AuditingEntityListener.class})
-@FilterDefs(@FilterDef(name ="activeFilter", parameters={@ParamDef(name="isActive", type="boolean")}))
-@Filters(@Filter(name="activeFilter", condition=":is_active = isActive"))
-@Where(clause = "is_active = 1")
 @MappedSuperclass
 @Getter
 @Setter

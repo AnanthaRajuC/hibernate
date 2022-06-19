@@ -19,7 +19,7 @@ import javax.persistence.*;
 @Table(name="student", schema="jhac")
 @SuperBuilder
 @EntityListeners(AuditingEntityListener.class)
-
+@Where(clause = "is_active = 1")
 public class Student extends AuditEntity {
 
     @Embedded

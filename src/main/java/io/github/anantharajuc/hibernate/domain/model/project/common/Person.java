@@ -4,6 +4,7 @@ import io.github.anantharajuc.hibernate.domain.model.project.common.enums.Gender
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.SuperBuilder;
+import org.hibernate.annotations.Where;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
