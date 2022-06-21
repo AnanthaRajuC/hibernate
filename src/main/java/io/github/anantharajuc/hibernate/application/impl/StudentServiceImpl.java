@@ -33,9 +33,8 @@ public class StudentServiceImpl implements StudentService {
     @Transactional
     @Override
     public Student getStudentById(Long StudentId) {
-        log.info("count: "+studentRepository.count());
-        log.info("existsById: "+studentRepository.existsById(StudentId));
-        final Optional<Student> student = studentRepository.findById(StudentId);
+        Optional<Student> studentOptional = studentRepository.findById(StudentId);
+        Optional<Student> student = studentRepository.findById(StudentId);
         if (student.isPresent()) {
             return student.get();
         }
@@ -81,7 +80,10 @@ public class StudentServiceImpl implements StudentService {
         if (!studentRepository.existsById(Objects.requireNonNull(studentToBeUpdated.getId(), "Student Id cannot be null"))) {
             throw new ResourceNotFoundException("Student","id",studentToBeUpdated.getId());
         }
-        return studentRepository.save(studentToBeUpdated);
+        else{
+            Student student = getStudentById(studentToBeUpdated.getId());
+            return studentRepository.save(studentToBeUpdated);
+        }
     }
 
     @Override

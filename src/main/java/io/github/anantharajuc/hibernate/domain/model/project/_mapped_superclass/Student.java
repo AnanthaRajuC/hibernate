@@ -9,6 +9,7 @@ import org.hibernate.annotations.Where;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.util.List;
 
 @FieldDefaults(level=AccessLevel.PRIVATE)
 @NoArgsConstructor
@@ -40,4 +41,9 @@ public class Student extends AuditEntity {
 
     @Embedded
     Course course;
+
+    public void addSubjects(List<String> subjects){
+        if (!subjects.isEmpty())
+            this.getCourse().getSubjects().addAll(subjects);
+    }
 }

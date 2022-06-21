@@ -1,5 +1,6 @@
 package io.github.anantharajuc.hibernate.domain.model.project.common.audit;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.SuperBuilder;
@@ -25,10 +26,12 @@ import java.util.UUID;
 public abstract class BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 
+    @Schema(description = "Unique identifier of the Contact.", example = "1")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
+    @Schema(description = "universally unique identifier.", example = "737174a9-2875-47e9-8dcd-efb352679b2b")
     @Column(name = "uuid", nullable = false, updatable = false, unique = true)
     private String uuid;
 
