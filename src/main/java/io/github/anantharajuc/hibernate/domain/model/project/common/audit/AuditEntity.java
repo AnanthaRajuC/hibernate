@@ -1,5 +1,6 @@
 package io.github.anantharajuc.hibernate.domain.model.project.common.audit;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.SuperBuilder;
@@ -35,12 +36,15 @@ public abstract class AuditEntity extends BaseEntity {
     @LastModifiedDate
     Date lastModifiedDate;
 
+    @JsonIgnore
     @Column(name = "is_active", nullable = false)
     Boolean isActive;
 
+    @JsonIgnore
     @Column(name = "inactive_reason")
     String inactiveReason;
 
+    @JsonIgnore
     @Column(name = "inactive_timestamp")
     Long inactiveTimestamp;
 

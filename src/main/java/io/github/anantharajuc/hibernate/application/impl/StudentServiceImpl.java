@@ -4,6 +4,8 @@ import io.github.anantharajuc.hibernate.application.StudentService;
 import io.github.anantharajuc.hibernate.domain.model.project._mapped_superclass.Student;
 import io.github.anantharajuc.hibernate.domain.model.project.common.Contact;
 import io.github.anantharajuc.hibernate.domain.model.project.repo.StudentRepository;
+import io.github.anantharajuc.hibernate.domain.model.project.search.SearchRequest;
+import io.github.anantharajuc.hibernate.exceptions.BusinessException;
 import io.github.anantharajuc.hibernate.exceptions.ResourceNotFoundException;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +16,19 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+
+import static io.github.anantharajuc.hibernate.exceptions.BusinessExceptionReason.STUDENT_NOT_FOUND_BY_EXT_REF;
 
 @Log4j2
 @Service
@@ -30,6 +41,9 @@ public class StudentServiceImpl implements StudentService {
     @Autowired
     private StudentRepository studentRepository;
 
+    @PersistenceContext
+    private EntityManager entityManager;
+
     @Transactional
     @Override
     public Student getStudentById(Long StudentId) {
@@ -40,7 +54,7 @@ public class StudentServiceImpl implements StudentService {
         }
         else {
             logError.info("Resource not found");
-            throw new ResourceNotFoundException("Student", "id", StudentId);
+            throw new BusinessException(STUDENT_NOT_FOUND_BY_EXT_REF);
         }
     }
 
@@ -91,5 +105,29 @@ public class StudentServiceImpl implements StudentService {
         Student student = getStudentById(studentId);
         student.deactivate(reason);
         studentRepository.save(student);
+    }
+
+    @Override
+    public List<Student> search(String keyword, SearchRequest searchRequest) {
+        List<String> columns;
+
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Student> criteriaQuery = criteriaBuilder.createQuery(Student.class);
+        Root<Student> studentRoot = criteriaQuery.from(Student.class);
+
+        List<Predicate> predicates = new ArrayList<>();
+
+        columns = searchRequest.getColumns();
+
+        for (int i = 0; i < columns.size(); i++) {
+            predicates.add(criteriaBuilder.or(criteriaBuilder.like(studentRoot.get(String.valueOf(columns.get(i))).as(String.class), "%" + keyword + "%")));
+        }
+
+        criteriaQuery.select(studentRoot).where(
+                criteriaBuilder.or(predicates.toArray(new Predicate[predicates.size()])));
+
+        List<Student> resultList = entityManager.createQuery(criteriaQuery).getResultList();
+
+        return resultList;
     }
 }

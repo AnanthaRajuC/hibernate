@@ -2,6 +2,7 @@ package io.github.anantharajuc.hibernate.interfaces.rest;
 
 import io.github.anantharajuc.hibernate.domain.model.project.dto.PageDTO;
 import io.github.anantharajuc.hibernate.domain.model.project.dto.StudentDTO;
+import io.github.anantharajuc.hibernate.domain.model.project.search.SearchRequest;
 import io.github.anantharajuc.hibernate.interfaces.facade.StudentFacade;
 import io.github.anantharajuc.hibernate.utils.PageValidator;
 import io.swagger.v3.oas.annotations.Operation;
@@ -96,5 +97,10 @@ public class StudentController {
                                                   @NotNull @Valid @RequestParam(value = "reason", required = true) String reason){
         studentFacade.deleteStudentById(studentId,reason);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @PutMapping("/Search")
+    public ResponseEntity<List<StudentDTO>> search(@RequestParam String keyword, @RequestBody(required = false) SearchRequest searchRequest){
+        return new ResponseEntity<>(studentFacade.search(keyword,searchRequest),HttpStatus.OK);
     }
 }

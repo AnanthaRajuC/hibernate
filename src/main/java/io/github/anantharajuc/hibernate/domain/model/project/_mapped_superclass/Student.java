@@ -1,5 +1,6 @@
 package io.github.anantharajuc.hibernate.domain.model.project._mapped_superclass;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.github.anantharajuc.hibernate.domain.model.project.common.*;
 import io.github.anantharajuc.hibernate.domain.model.project.common.audit.AuditEntity;
 import lombok.*;

@@ -4,6 +4,7 @@ import io.github.anantharajuc.hibernate.application.StudentService;
 import io.github.anantharajuc.hibernate.domain.model.project._mapped_superclass.Student;
 import io.github.anantharajuc.hibernate.domain.model.project.dto.PageDTO;
 import io.github.anantharajuc.hibernate.domain.model.project.dto.StudentDTO;
+import io.github.anantharajuc.hibernate.domain.model.project.search.SearchRequest;
 import io.github.anantharajuc.hibernate.interfaces.facade.StudentFacade;
 import io.github.anantharajuc.hibernate.interfaces.facade.assembler.StudentDTOAssembler;
 import io.github.anantharajuc.hibernate.utils.JPAUtility;
@@ -63,5 +64,11 @@ public class StudentFacadeImpl implements StudentFacade {
     @Override
     public void deleteStudentById(Long studentId, String reason) {
         studentService.deleteStudentById(studentId,reason);
+    }
+
+    @Override
+    public List<StudentDTO> search(String keyword, SearchRequest searchRequest) {
+        List<Student> studentsList = studentService.search(keyword,searchRequest);
+        return studentsList.stream().map(student -> studentDTOAssembler.toDTO(student)).collect(Collectors.toList());
     }
 }

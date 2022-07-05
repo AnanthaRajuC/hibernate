@@ -27,6 +27,7 @@ spring:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
         # Pretty print the SQL
         format_sql: true
+        generate_statistics: true
     hibernate:
       # DDL mode. This is actually a shortcut for the "hibernate.hbm2ddl.auto" property.
       # Defaults to "create-drop" when using an embedded database and no schema manager was detected.
